@@ -1,0 +1,74 @@
+@import '../1-base/variaveis';
+
+@mixin text ($color, $fontSize, $fontWeight, $letterSpacing, $uppercase) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+    text-transform: $uppercase;
+}
+
+.form__section {
+    padding: 0 1rem;
+
+    .form__container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        
+        .form__field {
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+        }
+
+        .form__label {
+            @include text ($veryDarkViolet, .75rem, 600, .1rem, uppercase);
+        }
+
+        .form__control {
+            font-family: $space;
+            @include text ($veryDarkViolet, .875rem, 600, '', '');
+
+            border: 1px solid $lightGray;
+            border-radius: .5rem;
+            height: 2.8125rem;
+            
+            padding-left: 1rem;
+
+            &::placeholder {
+                @include text ($darkViolet, .875rem, 400, .1rem, '');
+            }
+        }
+
+        .container__form__date {
+            display: grid;
+            grid-template-columns: 100 1fr;
+            gap: .75rem;
+
+            .form__field__input {
+                display: flex;
+                gap: .75rem;
+
+                #exp__date {
+                    width: 100%;
+                }
+            }
+
+            @media screen and (min-width: 375px) {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .btn__form {
+            @include text ($white, 1rem, 600, '', '');
+
+            background-color: $veryDarkViolet;
+            border: none;
+            border-radius: .5rem;
+            cursor: pointer;
+            
+            height: 3.25rem;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+@import '../1-base/variaveis';
+
+@mixin bg-degrade ($cores...){
+    background: linear-gradient(to right, $cores);
+}
+
+@mixin text ($color, $fontSize, $fontWeight, $letterSpacing) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+}
+
+.card__section {
+    @include bg-degrade($veryDarkViolet, $veryDarkViolet, $blueViolet, $veryDarkViolet);
+    display: flex;
+    flex-direction: column;
+
+    padding: 2rem 1rem 3rem 1rem;
+    margin-bottom: 7rem;
+    position: relative;
+
+    .front__card {
+        background-image: url(../../img/bg-card-front.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: .5rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        max-width: 286px;
+
+        padding: 20px;
+        position: absolute;
+        top: 51%;
+
+        .card__seal {
+            background-image: url(../../img/card-logo.svg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+
+            max-width: 3.5rem;
+            height: 2.125rem;
+        }
+
+        .card__number {
+            @include text ($white, 1rem, 500, .2rem);
+            margin: 2.5rem 0 0 0;
+        }
+
+        .card__info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 1.375rem;
+
+            .card__name, .card__date {
+                @include text ($white, .75rem, 500, 0rem);
+                text-transform: uppercase;
+                margin: 0;
+            }
+        }
+
+        @media screen and (min-width: 375px) {
+            .card__number {
+                @include text ($white, 1.5625rem, 500, 0rem);
+            }
+        }
+    }
+
+    .back__card {
+        background-image: url(../../img/bg-card-back.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: .5rem;
+
+        display: flex;
+        align-self: flex-end;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 17.0506rem;
+        height: 173px;
+
+        position: relative;
+
+        .card__cvc {
+            @include text ($white, .75rem, 500, .2rem);
+            
+            padding-bottom: .1rem;
+            position: absolute;
+            right: 1.875rem;
+        }
+    }
+
+    @media screen and (min-width: 23.4375rem) {
+        .back__card {
+            width: 19.625rem;
+            height: 11.5rem;
+
+            .card__cvc {
+                right: 2.8125rem;
+            }
+        }
+    }
+}
