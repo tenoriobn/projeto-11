@@ -10,6 +10,9 @@
 
 .form__section {
     padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .form__container {
         display: flex;
@@ -20,6 +23,8 @@
             display: flex;
             flex-direction: column;
             gap: .75rem;
+
+            max-width: 380px;
         }
 
         .form__label {
@@ -39,12 +44,17 @@
             &::placeholder {
                 @include text ($darkViolet, .875rem, 400, .1rem, '');
             }
+
+            &:hover {
+                border-color: $blueViolet;
+            }
         }
 
         .container__form__date {
             display: grid;
             grid-template-columns: 100 1fr;
             gap: .75rem;
+            max-width: 380px;
 
             .form__field__input {
                 display: flex;
@@ -69,6 +79,18 @@
             cursor: pointer;
             
             height: 3.25rem;
+            
+            max-width: 23.75rem;
+
+            &:hover {
+                background-color: $blueViolet;
+            }
         }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .form__section {
+        margin: 0 auto;
     }
 }

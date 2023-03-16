@@ -1,97 +1,170 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap");
-.card__section {
+.card__section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28%;
   background: linear-gradient(to right, hsl(278, 68%, 11%), hsl(278, 68%, 11%), hsl(278, 94%, 30%), hsl(278, 68%, 11%));
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem 3rem 1rem;
-  margin-bottom: 7rem;
-  position: relative;
+  z-index: -1;
 }
-.card__section .front__card {
-  background-image: url(../../img/bg-card-front.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 0.5rem;
+.card__section .container__cards {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 286px;
-  padding: 20px;
-  position: absolute;
-  top: 51%;
+  max-width: 23.75rem;
+  margin: 0 auto 9rem auto;
+  padding: 2rem 1rem 0 1rem;
+  position: relative;
 }
-.card__section .front__card .card__seal {
-  background-image: url(../../img/card-logo.svg);
-  background-size: 100%;
+.card__section .container__cards .back__card {
+  background-image: url(../../img/bg-card-back.png);
   background-repeat: no-repeat;
-  max-width: 3.5rem;
-  height: 2.125rem;
+  background-size: cover;
+  width: 17.875rem;
+  height: 9.8125rem;
+  position: relative;
 }
-.card__section .front__card .card__number {
+.card__section .container__cards .back__card .card__cvc {
+  color: hsl(0, 0%, 100%);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  text-transform: "";
+  margin: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 49.5%;
+  left: 82%;
+}
+@media screen and (min-width: 375px) {
+  .card__section .container__cards .back__card {
+    align-self: flex-end;
+  }
+}
+.card__section .container__cards .front__card {
+  background-image: url(../../img/bg-card-front.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  justify-content: space-between;
+  font-family: "Space Grotesk", sans-serif;
+  width: 17.875rem;
+  height: 9.8125rem;
+  position: absolute;
+  transform: translate(0%, -43%);
+  top: 100%;
+  z-index: 2;
+}
+.card__section .container__cards .front__card .card__seal {
+  background-image: url(../../img/card-logo.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 3.5rem;
+  height: 2rem;
+  margin: 1rem 0 0 1rem;
+}
+.card__section .container__cards .front__card .card__number {
   color: hsl(0, 0%, 100%);
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.2rem;
-  margin: 2.5rem 0 0 0;
-}
-.card__section .front__card .card__info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1.375rem;
-}
-.card__section .front__card .card__info .card__name, .card__section .front__card .card__info .card__date {
-  color: hsl(0, 0%, 100%);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0rem;
   text-transform: uppercase;
-  margin: 0;
+  padding-top: 1rem;
+  margin: 0 1rem 0 1rem;
 }
-@media screen and (min-width: 375px) {
-  .card__section .front__card .card__number {
-    color: hsl(0, 0%, 100%);
-    font-size: 1.5625rem;
-    font-weight: 500;
-    letter-spacing: 0rem;
-  }
-}
-.card__section .back__card {
-  background-image: url(../../img/bg-card-back.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 0.5rem;
+.card__section .container__cards .front__card .card__info {
   display: flex;
-  align-self: flex-end;
-  flex-direction: column;
-  justify-content: center;
-  width: 17.0506rem;
-  height: 173px;
-  position: relative;
+  justify-content: space-between;
+  margin: 0 1rem 1rem 1rem;
 }
-.card__section .back__card .card__cvc {
+.card__section .container__cards .front__card .card__info .card__name, .card__section .container__cards .front__card .card__info .card__date {
   color: hsl(0, 0%, 100%);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.2rem;
-  padding-bottom: 0.1rem;
-  position: absolute;
-  right: 1.875rem;
-}
-@media screen and (min-width: 23.4375rem) {
-  .card__section .back__card {
-    width: 19.625rem;
-    height: 11.5rem;
-  }
-  .card__section .back__card .card__cvc {
-    right: 2.8125rem;
-  }
+  text-transform: uppercase;
+  margin: 0;
 }
 
+@media screen and (min-width: 992px) {
+  .card__section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .card__section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    right: 0rem;
+    width: 175%;
+    height: 100%;
+  }
+  .card__section .container__cards {
+    margin: 0 0 0rem 0;
+    padding: 0rem 0rem 0 0rem;
+  }
+  .card__section .container__cards .back__card {
+    transform: translate(0%, 65%);
+  }
+  .card__section .container__cards .front__card {
+    transform: translate(0%, -160%);
+  }
+}
+@media screen and (min-width: 992px) and (min-width: 1200px) {
+  .card__section .container__cards .back__card {
+    transform: translate(25%, 65%);
+    width: 27.9375rem;
+    height: 15.3125rem;
+  }
+  .card__section .container__cards .back__card .card__cvc {
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-transform: "";
+  }
+  .card__section .container__cards .front__card {
+    transform: translate(0%, -160%);
+    width: 27.9375rem;
+    height: 15.3125rem;
+  }
+  .card__section .container__cards .front__card .card__seal {
+    width: 5.375rem;
+    height: 3.1875rem;
+    margin: 1.5rem 0 0 1.5rem;
+  }
+  .card__section .container__cards .front__card .card__number {
+    color: hsl(0, 0%, 100%);
+    font-size: 1.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    padding-top: 1.5rem;
+    margin: 0 1.5rem 0 1.5rem;
+  }
+  .card__section .container__cards .front__card .card__info {
+    margin: 0 1.5rem 1.5rem 1.5rem;
+  }
+  .card__section .container__cards .front__card .card__info .card__name, .card__section .container__cards .front__card .card__info .card__date {
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+  }
+}
 .form__section {
   padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .form__section .form__container {
   display: flex;
@@ -102,6 +175,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  max-width: 380px;
 }
 .form__section .form__container .form__label {
   color: hsl(278, 68%, 11%);
@@ -136,10 +210,14 @@
   letter-spacing: 0.1rem;
   text-transform: "";
 }
+.form__section .form__container .form__control:hover {
+  border-color: hsl(278, 94%, 30%);
+}
 .form__section .form__container .container__form__date {
   display: grid;
   grid-template-columns: 100 1fr;
   gap: 0.75rem;
+  max-width: 380px;
 }
 .form__section .form__container .container__form__date .form__field__input {
   display: flex;
@@ -164,8 +242,17 @@
   border-radius: 0.5rem;
   cursor: pointer;
   height: 3.25rem;
+  max-width: 23.75rem;
+}
+.form__section .form__container .btn__form:hover {
+  background-color: hsl(278, 94%, 30%);
 }
 
+@media screen and (min-width: 992px) {
+  .form__section {
+    margin: 0 auto;
+  }
+}
 html, body {
   font-family: "Space Grotesk", sans-serif;
   box-sizing: border-box;
@@ -173,4 +260,15 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+@media screen and (min-width: 992px) {
+  main {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    height: 100vh;
+  }
 }/*# sourceMappingURL=base.css.map */
