@@ -223,7 +223,7 @@
   display: flex;
   gap: 0.75rem;
 }
-.form__section .form__container .container__form__date .form__field__input #exp__date {
+.form__section .form__container .container__form__date .form__field__input .exp__date {
   width: 100%;
 }
 @media screen and (min-width: 375px) {
