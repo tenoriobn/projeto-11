@@ -4,7 +4,9 @@ export default function itsACard(campo) {
     console.log(card);
 
     validateRepeatedNumbers(card);
-    console.log(validateRepeatedNumbers(card));
+    // console.log(validateRepeatedNumbers(card));
+
+    validateCardNumber(campo);
 }
 
 function validateRepeatedNumbers(card) {
@@ -22,4 +24,43 @@ function validateRepeatedNumbers(card) {
     ]
 
     return (repeatedNumbers.includes(card));
+}
+
+function validateCardNumber(campo) {
+    if(campo.name == "cardNumber" && campo.value.length >= 16) {
+        let cardNumber = campo.value.replace(/\s/g, '');
+        if (isNaN(cardNumber)) {
+            console.log("O número do cartão deve conter apenas números");
+            return false;
+        }
+
+        let cardNumberArray = cardNumber.split("").reverse().map(Number);
+        let sum = 0;
+
+        for(let i = 0; i < cardNumberArray.length; i++) {
+            let cardNumberdigit = cardNumberArray[i];
+
+            if(i % 2 !== 0) {
+                cardNumberdigit *= 2;
+                
+                if (cardNumberdigit > 9) {
+                    cardNumberdigit -= 9;
+                }
+            }
+
+            sum += cardNumberdigit;
+        }
+
+        if (sum % 10 === 0) {
+            console.log("número válido")
+            return true;
+        } else {
+            console.log("Número inválido");
+            return false;
+        }
+    }
+}
+
+function checkField(campo) {
+    validateCardNumber(campo);
 }
