@@ -76,25 +76,25 @@ function validateCardNumber(campo) {
         for(let i = 0; i < cardNumberArray.length; i++) {
 
             // É armazendo na variável o digito do cartão correspondente ao índice acessado pelo loop.
-            let cardNumberdigit = cardNumberArray[i];
+            let cardNumberDigit = cardNumberArray[i];
 
             // Essa condição verifica se o índice do digito está em uma posição par.
             // Isso porque, os números impares são multiplicados na lógica de Luhn
             if(i % 2 !== 0) {
                 // Os digitos que tem índice em posição impares são multiplicados por 2. OBS: O digito está dentro da variável
-                cardNumberdigit *= 2;
+                cardNumberDigit *= 2;
                 
                 // Essa condição vai verificar se o digitado multiplicado por 2 ficou maior que 9.
-                if (cardNumberdigit > 9) {
+                if (cardNumberDigit > 9) {
                     // Caso seja 'true' então o algoritmo de Luhn pede para subtrair esse resultado por -9.
-                    cardNumberdigit -= 9;
+                    cardNumberDigit -= 9;
                 }
             }
 
             // Após as condições anteriores, o resultado será somado e armazenado na variável `sum`
             // Somado, pois a cada digito que o loop percorrer, ele irá somar com os já existentes na variável `sum`
             // Sendo assim, possível de verificar se o número do cartão é válido ou não
-            sum += cardNumberdigit;
+            sum += cardNumberDigit;
         }
 
         // Essa condição vai pegar a variável `sum`, com todos os digitos somados ao finalizar o loop
