@@ -1,5 +1,6 @@
 // Importanto arquivos com outras funcionalidades
 import itsACard from "./2-validateCard.js";
+import itsACvc from "./3-validateCvc.js";
 
 // Pegando os campos com status de required (nome, número do cartão, cvc,) e armazenando na variável
 const camposDoFormulario = document.querySelectorAll("[required]");
@@ -20,5 +21,11 @@ function verificaCampo(campo) {
         // Essa é a função que possibilita a modularização dos códigos.
         // Dentro dela está sendo chamada outras funções, como, por exemplo, a verificação de números e repetidos e validações de número.
         itsACard(campo)
+    }
+
+    // Semelhante a condição de cima, essa condição vai verificar se o campo digitado corresponde ao `cardCvc`
+    // Caso seja 'true', ela irá chamar a função `itsACvc`.
+    if(campo.name == "cardCvc") {
+        itsACvc (campo)
     }
 }
