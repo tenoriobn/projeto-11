@@ -11,12 +11,13 @@ camposDoFormulario.forEach((campo) => {
     // Aplicando o evento blur em cada campo, já que o forEach pega todos os campos um de cada vez e armazena no parâmetro "campo"
     // Em seguida executa a função verificaCampo que vai executar o evento em cada campo
     campo.addEventListener("blur", () => verificaCampo(campo));
+    campo.addEventListener("blur", () => checkDateField(campo));
 })
 
 // Essa função vai ser chamada se eu clicar no campo e depois clicar fora, de acordo com o evento "blur".
 // O parâmetro "campo" carrega os inputs, então dentro da função torna-se possível acessar coisas como "name" e "value".
 function verificaCampo(campo) {
-    if(campo.name == "cardName") {
+    if(campo.name == "cardName" && campo.value !== "") {
         // Pegando os caracteres do nome do cartão na imagem
         const frontCardName = document.getElementById('card__name');
         // Pegando os caracteres inseridos no input do nome do cartão e substituindo pelos caracteres na imagem do cartão
@@ -36,13 +37,13 @@ function verificaCampo(campo) {
         frontCardNumber.innerHTML = campo.value;
     }
 
-    if(campo.name == "cardMonth" || campo.name == "cardYear") {
-        itsADate(campo);
-    }
+    // if(campo.name == "cardMonth" || campo.name == "cardYear") {
+    //     itsADate(campo);
+    // }
 
     // Semelhante a condição de cima, essa condição vai verificar se o campo digitado corresponde ao `cardCvc`
     // Caso seja 'true', ela irá chamar a função `itsACvc`.
-    if(campo.name == "cardCvc") {
+    if(campo.name == "cardCvc" && campo.value !== "") {
         // Dentro dessa função está sendo chamado outras funções, como, por exemplo, a verificação de números digitados no cvc.
         itsACvc (campo);
 
@@ -52,3 +53,28 @@ function verificaCampo(campo) {
         frontCardCvc.innerHTML = campo.value;
     }
 }
+
+const cardMonth = document.querySelector('[name="cardMonth"]');
+const cardYear = document.querySelector('[name="cardYear"]');
+
+function checkDateField(campo) {
+    if(cardMonth.value !== "" && cardYear.value !== "") {
+        if(campo.name == "cardMonth" || campo.name == "cardYear") {
+            itsADate(campo);
+
+            const frontCardDate = document.getElementById('card__date');
+
+            if (cardMonth.value < 10) {
+                frontCardDate.innerHTML = '0' + cardMonth.value + '/' + cardYear.value;
+            } else {
+                frontCardDate.innerHTML = cardMonth.value + '/' + cardYear.value;
+            }
+            
+        }
+    }
+}
+
+
+
+// Corrigir bug do campo de número do cartão de crédito que mesmo após inserir número correto, apresenta que formato é inválido
+// Corrigir bug do mês, pois se eu digitar um formato inválido e depois digitar ano não aparece mensagem invalidando, só ao contrário.
