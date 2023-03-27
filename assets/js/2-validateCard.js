@@ -1,6 +1,7 @@
 // Variável que armazena o input do número do cartão de crédito
 let cardNumberField = document.getElementById("card__number");
 
+
 // A função "itsACard" será responsável por modularizar o código dessa folha para a outra
 // Isso possibilita quebrar o código em arquivos com pequenas funcionalidades.
 export default function itsACard(campo) {

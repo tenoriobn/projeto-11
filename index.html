@@ -13,17 +13,17 @@
         <section class="card__section">
             <div class="container__cards">
                 <div class="back__card">
-                    <h3 class="card__cvc">123</h3>
+                    <h3 class="card__cvc" id="card__cvc">123</h3>
                 </div>
 
                 <div class="front__card">
                     <span class="card__seal"></span> <!-- Aqui vai o selo prateado do cartão -->
 
-                    <h1 class="card__number">0000 0000 0000 0000</h1>
+                    <h1 class="card__number" id="front__card__number">0000 0000 0000 0000</h1>
 
                     <div class="card__info">
-                        <h2 class="card__name">Bruno T. B. Santana</h2>
-                        <h3 class="card__date">00/00</h3>
+                        <h2 class="card__name" id="card__name">Bruno T. B. Santana</h2>
+                        <h3 class="card__date" id="card__date">00/00</h3>
                         </div>
                 </div>
             </div>
@@ -34,13 +34,13 @@
             <form action="" class="form__container">
                 <div class="form__field"> <!--Grid-->
                     <label for="name" class="form__label">Cardholder Name</label>
-                    <input type="text" class="form__control" id="name" placeholder="e.g. Jane Appleseed" minlength="12" required>
+                    <input name="cardName" type="text" class="form__control" id="name" placeholder="e.g. Jane Appleseed" minlength="12" required>
                     <span class="mensagem-erro"></span>
                 </div>
 
                 <div class="form__field">
                     <label for="card__number" class="form__label">Card Number</label>
-                    <input name="cardNumber" type="text" class="form__control" id="card__number" placeholder="e.g. 1234 5678 9123 0000" minlength="16" pattern="\d{4}\ ?\d{4}\ ?\d{4} ?\d{4}" required>
+                    <input name="cardNumber" type="text" class="form__control" id="card__number" placeholder="e.g. 1234 5678 9123 0000" minlength="16" pattern="\\d{4}\\ ?\\d{4}\\ ?\\d{4}\\ ?\\d{4}" required>
                     <span class="mensagem-erro"></span>
                 </div>
 
@@ -48,8 +48,8 @@
                     <div class="form__field form__field--mod"><!--Grid-->
                         <label for="exp__month" class="form__label">Exp. Date (mm/yy)</label>
                         <div class="form__field__input">
-                            <input type="number" class="form__control exp__date" id="exp__month" placeholder="MM" min="2" required>
-                            <input type="number" class="form__control exp__date" id="exp__year" placeholder="YY" min="2" required>
+                            <input name="cardMonth" type="text" class="form__control exp__date" id="exp__month" placeholder="MM" min="2" required>
+                            <input name="cardYear" type="text" class="form__control exp__date" id="exp__year" placeholder="YY" min="2" required>
                         </div>
                         <span class="mensagem-erro"></span>
                     </div>
