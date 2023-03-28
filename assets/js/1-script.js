@@ -17,7 +17,7 @@ camposDoFormulario.forEach((campo) => {
 // Essa função vai ser chamada se eu clicar no campo e depois clicar fora, de acordo com o evento "blur".
 // O parâmetro "campo" carrega os inputs, então dentro da função torna-se possível acessar coisas como "name" e "value".
 function verificaCampo(campo) {
-    if(campo.name == "cardName" && campo.value !== "") {
+    if(campo.name == "cardName" && campo.value.length >= 12 && campo.value !== "") {
         // Pegando os caracteres do nome do cartão na imagem
         const frontCardName = document.getElementById('card__name');
         // Pegando os caracteres inseridos no input do nome do cartão e substituindo pelos caracteres na imagem do cartão
@@ -34,7 +34,9 @@ function verificaCampo(campo) {
         // Pegando os caracteres do número do cartão na imagem
         const frontCardNumber = document.getElementById("front__card__number");
         // Pegando os caracteres inseridos no input do número do cartão e substituindo pelos caracteres na imagem do cartão
-        frontCardNumber.innerHTML = campo.value;
+        if(campo.value.length >= 16 && campo.value.length <= 24){
+            frontCardNumber.innerHTML = campo.value;
+        }
     }
 
     // if(campo.name == "cardMonth" || campo.name == "cardYear") {
@@ -50,7 +52,7 @@ function verificaCampo(campo) {
         // Pegando os caracteres do cvc do cartão na imagem
         const frontCardCvc = document.getElementById('card__cvc');
         // Pegando os caracteres inseridos no input do cvc do cartão e substituindo pelos caracteres na imagem do cartão
-        frontCardCvc.innerHTML = campo.value;
+            frontCardCvc.innerHTML = campo.value;
     }
 }
 
@@ -73,8 +75,3 @@ function checkDateField(campo) {
         }
     }
 }
-
-
-
-// Corrigir bug do campo de número do cartão de crédito que mesmo após inserir número correto, apresenta que formato é inválido
-// Corrigir bug do mês, pois se eu digitar um formato inválido e depois digitar ano não aparece mensagem invalidando, só ao contrário.
