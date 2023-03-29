@@ -16,6 +16,12 @@ html, body {
     overflow-y: hidden;
 }
 
+.error-message {
+    color: red;
+    font-size: .75rem;
+    font-weight: 300;
+}
+
 @media screen and (min-width: 992px) {
     main {
         display: flex;

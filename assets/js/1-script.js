@@ -12,11 +12,48 @@ camposDoFormulario.forEach((campo) => {
     // Em seguida executa a função verificaCampo que vai executar o evento em cada campo
     campo.addEventListener("blur", () => verificaCampo(campo));
     campo.addEventListener("blur", () => checkDateField(campo));
+    //Esse evento tira o pop-up padrão que o navegador aplica sobre os campos
+    campo.addEventListener("invalid", evento => evento.preventDefault());
 })
+
+const errorTypes = [
+    'valueMissing',
+    'typeMismatch',
+    'patternMismatch',
+    'tooShort',
+    'customError'
+]
+
+const messages = {
+    cardName: {
+        valueMissing: "O campo de nome não pode estar vazio.",
+        patternMismatch: "Por favor, preencha um nome válido.",
+        tooShort: "Por favor, preencha um nome válido."
+    },
+    cardNumber: {
+        valueMissing: 'O campo do número não pode estar vazio.',
+        patternMismatch: "Por favor, preencha um número válido.",
+        customError: "O número digitado não é válido.",
+        tooShort: "O campo de número não tem caractéres suficientes."
+    },
+    expMonth: {
+        valueMissing: 'O campo de data de válidade não pode estar vazia.',
+        patternMismatch: "Por favor, preencha um cvc válido.",
+        customError: 'A data deve estar dentro do prazo de válidade para se cadastrar.'
+    },
+    cardCvc: {
+        valueMissing: 'O campo do número não pode estar vazio.',
+        patternMismatch: "Por favor, preencha um cvc válido.",
+        customError: "O cvc digitado não existe.",
+        tooShort: "O campo de cvc não tem caractéres suficientes."
+    }
+}
 
 // Essa função vai ser chamada se eu clicar no campo e depois clicar fora, de acordo com o evento "blur".
 // O parâmetro "campo" carrega os inputs, então dentro da função torna-se possível acessar coisas como "name" e "value".
 function verificaCampo(campo) {
+    let message = "";
+    campo.setCustomValidity('');
     if(campo.name == "cardName" && campo.value.length >= 12 && campo.value !== "") {
         // Pegando os caracteres do nome do cartão na imagem
         const frontCardName = document.getElementById('card__name');
@@ -52,7 +89,25 @@ function verificaCampo(campo) {
         // Pegando os caracteres do cvc do cartão na imagem
         const frontCardCvc = document.getElementById('card__cvc');
         // Pegando os caracteres inseridos no input do cvc do cartão e substituindo pelos caracteres na imagem do cartão
+        if(campo.value.length >= 3 && campo.value.length < 5) {
             frontCardCvc.innerHTML = campo.value;
+        }
+    }
+
+    errorTypes.forEach(erro => {
+        if(campo.validity[erro]) {
+            message = messages[campo.name][erro];
+            console.log(message)
+        }
+    })
+
+    const errorMessage = campo.parentNode.querySelector('.error-message');
+    const inputValidator = campo.checkValidity();
+
+    if(!inputValidator) {
+        errorMessage.textContent = message;
+    } else {
+        errorMessage.textContent = "";
     }
 }
 

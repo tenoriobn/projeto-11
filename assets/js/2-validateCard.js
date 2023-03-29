@@ -1,7 +1,6 @@
 // Variável que armazena o input do número do cartão de crédito
 let cardNumberField = document.getElementById("card__number");
 
-
 // A função "itsACard" será responsável por modularizar o código dessa folha para a outra
 // Isso possibilita quebrar o código em arquivos com pequenas funcionalidades.
 export default function itsACard(campo) {
@@ -57,7 +56,7 @@ function validateCardNumber(campo) {
         // Essa condição só será executada caso seja digitado no campo algo que não é número (isNan 'Não é número')
         if (isNaN(cardNumber)) {
             // Se não for número, a condição será true dizendo que não é um número e executará o `console.log`
-            console.log("O número do cartão deve conter apenas números");
+            campo.setCustomValidity('Esse número não é válido')
             // Além disso, retorna `false` para mostrar que a validação falhou
             return false;
         }
@@ -108,7 +107,7 @@ function validateCardNumber(campo) {
 
             // Caso contrário, se o resto da divisão for diferente de 0, trata-se de um número inválido
         } else {
-            console.log("Número inválido");
+            campo.setCustomValidity('Esse número não é válido')
             // Retorno indicando que o número é inválido
             return false;
         }

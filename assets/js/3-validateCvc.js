@@ -10,17 +10,16 @@ export default function itsACvc (campo) {
         // Essa condição será executada caso seja digitado no campo caracteres que não sejam números (isNan 'Não é número')
         if (isNaN(cardCvc)) {
             // Se não for número, a condição será true dizendo que não é um número e executará o `console.log`
-            console.log("O número do cvc deve conter apenas números");
+            campo.setCustomValidity('O cvc deve conter apenas números');
             // Além disso, retorna `false` para mostrar que a validação falhou
             return false;
 
             // Além disso, se for digitado menos que 3 e mais que 4 caracteres númericos, essa condição será executada.
         } else if (cardCvc.length < 3 || cardCvc.length > 4) {
             // Caso seja `true` sera executado o `console.log`
-            console.log("O número cvc deve conter no mínimo 3 caracteres e no máximo 5 caracteres");
+            campo.setCustomValidity('O número cvc deve conter no mínimo 3 caracteres e no máximo 4 caracteres');
             // Além disso, retorna `false` para mostrar que a validação falhou
             return false;
-
         }
     }
 }
