@@ -49,14 +49,15 @@
                         <label for="exp__month" class="form__label">Exp. Date (mm/yy)</label>
                         <div name="formFieldInput" class="form__field__input" id="form__field__input">
                             <input name="cardMonth" type="text" class="form__control exp__date" id="exp__month" placeholder="MM" min="2" required>
+                            <span class="error-message"></span>
                             <input name="cardYear" type="text" class="form__control exp__date" id="exp__year" placeholder="YY" min="2" required>
+                            <span class="error-message"></span>
                         </div>
-                        <span class="error-message"></span>
                     </div>
                 
                     <div class="form__field">
                         <label for="cvc" class="form__label">Cvc</label>
-                        <input name="cardCvc" type="text" class="form__control" id="cvc" placeholder="e.g. 123" min="4" required>
+                        <input name="cardCvc" type="text" class="form__control" id="cvc" placeholder="e.g. 123" min="3" required>
                         <span class="error-message"></span>
                     </div>
                 </div>

@@ -1,6 +1,9 @@
-export default function itsADate(campo) {
+export default function itsADate(campo, validarData = true) {
     formatDate(campo);
-    validaData()
+    
+    if (validarData) {
+        validaData();
+    }
 }
 
 function formatDate(campo) {
@@ -10,12 +13,13 @@ function formatDate(campo) {
     }
     
     if(campo.name == "cardYear" && (campo.value.length < 2 || campo.value.length === 3 || campo.value.length > 4 || isNaN(campo.value))) {
-        console.log('Ano inválido!')
+        // console.log('Ano inválido!')
+        campo.setCustomValidity('Ano inválido!');
         return false;
     }
 
     if(campo.name == "cardMonth" && (campo.value.length == "" || campo.value.length > 2 || isNaN(campo.value) || campo.value < 1 || campo.value > 12)) {
-        console.log('Mês inválido!')
+        campo.setCustomValidity('Mês inválido');
         return false;
     }
 }
@@ -24,8 +28,6 @@ function validaData() {
     const cardMonth = Number(document.getElementById('exp__month').value);
     const cardYear = Number(document.getElementById('exp__year').value);
     console.log(cardMonth, cardYear)
-    // const cardMonthEYear = cardMonth + '/' + cardYear;
-    // console.log(cardMonthEYear)
 
     const today = new Date();
     const currentMonth = Number(today.getMonth() + 1); // adicionamos 1 porque o método getMonth() retorna um valor de 0 a 11 para os meses
