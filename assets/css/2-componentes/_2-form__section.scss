@@ -52,15 +52,28 @@
 
         .container__form__date {
             display: grid;
-            grid-template-columns: 100 1fr;
+            grid-template-columns: 1fr;
             gap: .75rem;
             max-width: 380px;
 
             .form__field__input {
                 display: flex;
                 gap: .75rem;
+                flex-wrap: wrap;
 
                 .exp__date {
+                    width: 40.9%;
+
+                    @media screen and (min-width: 375px) {
+                            width: 31.5%;
+                    }
+
+                    @media screen and (min-width: 425px) {
+                        width: 35.4%;
+                    }
+                }
+
+                .error-message {
                     width: 100%;
                 }
             }

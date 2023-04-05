@@ -170,6 +170,7 @@ function verificaCampo(campo) {
     if(!inputValidator) {
         // Aqui o erro especifico do campo será exibido logo abaixo do input como string
         errorMessage.textContent = message;
+        errorMessage.style.display = 'block';
     } else {
         // Caso contrário, nada acontece
         errorMessage.textContent = "";
