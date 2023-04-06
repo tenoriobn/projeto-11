@@ -18,68 +18,129 @@
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        
+        max-width: 380px;
+
         .form__field {
             display: flex;
             flex-direction: column;
             gap: .75rem;
 
-            max-width: 380px;
-        }
-
-        .form__label {
-            @include text ($veryDarkViolet, .75rem, 600, .1rem, uppercase);
-        }
-
-        .form__control {
-            font-family: $space;
-            @include text ($veryDarkViolet, .875rem, 600, '', '');
-
-            border: 1px solid $lightGray;
-            border-radius: .5rem;
-            height: 2.8125rem;
-            
-            padding-left: 1rem;
-
-            &::placeholder {
-                @include text ($darkViolet, .875rem, 400, .1rem, '');
+            .form__label {
+                @include text ($veryDarkViolet, .75rem, 600, .1rem, uppercase);
             }
 
-            &:hover {
-                border-color: $blueViolet;
+            .form__control {
+                font-family: $space;
+                @include text ($veryDarkViolet, .875rem, 600, '', '');
+
+                border: 1px solid $lightGray;
+                border-radius: .5rem;
+                height: 2.8125rem;
+
+                max-width: 380px;
+
+                padding-left: 1rem;
+
+                &::placeholder {
+                    @include text ($darkViolet, .875rem, 400, .1rem, '');
+                }
+
+                &:hover {
+                    border-color: $blueViolet;
+                }
             }
         }
 
         .container__form__date {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: .75rem;
-            max-width: 380px;
+            display: flex;
+            gap: 1.75rem;
+            width: 100%;
 
-            .form__field__input {
+            
+            @media screen and (max-width: 320px) {
+                flex-direction: column;
+            }
+
+            .form__field--mod {
                 display: flex;
+                flex-direction: column;
                 gap: .75rem;
-                flex-wrap: wrap;
+                width: 100%;
 
-                .exp__date {
-                    width: 40.9%;
-
-                    @media screen and (min-width: 375px) {
-                            width: 31.5%;
-                    }
-
-                    @media screen and (min-width: 425px) {
-                        width: 35.4%;
-                    }
+                .form__label {
+                    @include text ($veryDarkViolet, .75rem, 600, .1rem, uppercase);
                 }
 
-                .error-message {
+                .form__field__input {
+                    display: flex;
+                    gap: .75rem;
                     width: 100%;
+
+                    .container__cardMonth, .container__cardYear {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .75rem;
+                        width: 100%;
+
+                        .exp__date {
+                            box-sizing: border-box;
+                            width: 100%;
+                        }
+
+                        .form__control {
+                            font-family: $space;
+                            @include text ($veryDarkViolet, .875rem, 600, '', '');
+            
+                            border: 1px solid $lightGray;
+                            border-radius: .5rem;
+                            height: 2.8125rem;
+            
+                            padding-left: 1rem;
+            
+                            &::placeholder {
+                                @include text ($darkViolet, .875rem, 400, .1rem, '');
+                            }
+            
+                            &:hover {
+                                border-color: $blueViolet;
+                            }
+                        }
+                    }
                 }
             }
 
-            @media screen and (min-width: 375px) {
-                grid-template-columns: 1fr 1fr;
+            .container__cvc {
+                display: flex;
+                flex-direction: column;
+                gap: .75rem;
+                width: 50%;
+
+                @media screen and (max-width: 320px) {
+                    width: 100%;
+                }
+
+                .form__label {
+                    @include text ($veryDarkViolet, .75rem, 600, .1rem, uppercase);
+                }
+
+                .form__control {
+                    font-family: $space;
+                    @include text ($veryDarkViolet, .875rem, 600, '', '');
+    
+                    border: 1px solid $lightGray;
+                    border-radius: .5rem;
+                    height: 2.8125rem;
+    
+                    padding-left: 1rem;
+    
+                    &::placeholder {
+                        @include text ($darkViolet, .875rem, 400, .1rem, '');
+                    }
+    
+                    &:hover {
+                        border-color: $blueViolet;
+                    }
+                }
             }
         }
 

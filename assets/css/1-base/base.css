@@ -170,21 +170,89 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  max-width: 380px;
 }
 .form__section .form__container .form__field {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  max-width: 380px;
 }
-.form__section .form__container .form__label {
+.form__section .form__container .form__field .form__label {
   color: hsl(278, 68%, 11%);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
-.form__section .form__container .form__control {
+.form__section .form__container .form__field .form__control {
+  font-family: "Space Grotesk", sans-serif;
+  color: hsl(278, 68%, 11%);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: "";
+  text-transform: "";
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 0.5rem;
+  height: 2.8125rem;
+  max-width: 380px;
+  padding-left: 1rem;
+}
+.form__section .form__container .form__field .form__control::-moz-placeholder {
+  color: hsl(279, 6%, 55%);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: "";
+}
+.form__section .form__container .form__field .form__control::placeholder {
+  color: hsl(279, 6%, 55%);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: "";
+}
+.form__section .form__container .form__field .form__control:hover {
+  border-color: hsl(278, 94%, 30%);
+}
+.form__section .form__container .container__form__date {
+  display: flex;
+  gap: 1.75rem;
+  width: 100%;
+}
+@media screen and (max-width: 320px) {
+  .form__section .form__container .container__form__date {
+    flex-direction: column;
+  }
+}
+.form__section .form__container .container__form__date .form__field--mod {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+.form__section .form__container .container__form__date .form__field--mod .form__label {
+  color: hsl(278, 68%, 11%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+.form__section .form__container .container__form__date .form__field--mod .form__field__input {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+.form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardMonth, .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardYear {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+.form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardMonth .exp__date, .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardYear .exp__date {
+  box-sizing: border-box;
+  width: 100%;
+}
+.form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardMonth .form__control, .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardYear .form__control {
   font-family: "Space Grotesk", sans-serif;
   color: hsl(278, 68%, 11%);
   font-size: 0.875rem;
@@ -196,54 +264,69 @@
   height: 2.8125rem;
   padding-left: 1rem;
 }
-.form__section .form__container .form__control::-moz-placeholder {
+.form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardMonth .form__control::-moz-placeholder, .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardYear .form__control::-moz-placeholder {
   color: hsl(279, 6%, 55%);
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
   text-transform: "";
 }
-.form__section .form__container .form__control::placeholder {
+.form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardMonth .form__control::placeholder, .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardYear .form__control::placeholder {
   color: hsl(279, 6%, 55%);
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
   text-transform: "";
 }
-.form__section .form__container .form__control:hover {
+.form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardMonth .form__control:hover, .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardYear .form__control:hover {
   border-color: hsl(278, 94%, 30%);
 }
-.form__section .form__container .container__form__date {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-  max-width: 380px;
-}
-.form__section .form__container .container__form__date .form__field__input {
+.form__section .form__container .container__form__date .container__cvc {
   display: flex;
+  flex-direction: column;
   gap: 0.75rem;
-  flex-wrap: wrap;
+  width: 50%;
 }
-.form__section .form__container .container__form__date .form__field__input .exp__date {
-  width: 40.9%;
-}
-@media screen and (min-width: 375px) {
-  .form__section .form__container .container__form__date .form__field__input .exp__date {
-    width: 31.5%;
+@media screen and (max-width: 320px) {
+  .form__section .form__container .container__form__date .container__cvc {
+    width: 100%;
   }
 }
-@media screen and (min-width: 425px) {
-  .form__section .form__container .container__form__date .form__field__input .exp__date {
-    width: 35.4%;
-  }
+.form__section .form__container .container__form__date .container__cvc .form__label {
+  color: hsl(278, 68%, 11%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
-.form__section .form__container .container__form__date .form__field__input .error-message {
-  width: 100%;
+.form__section .form__container .container__form__date .container__cvc .form__control {
+  font-family: "Space Grotesk", sans-serif;
+  color: hsl(278, 68%, 11%);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: "";
+  text-transform: "";
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 0.5rem;
+  height: 2.8125rem;
+  padding-left: 1rem;
 }
-@media screen and (min-width: 375px) {
-  .form__section .form__container .container__form__date {
-    grid-template-columns: 1fr 1fr;
-  }
+.form__section .form__container .container__form__date .container__cvc .form__control::-moz-placeholder {
+  color: hsl(279, 6%, 55%);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: "";
+}
+.form__section .form__container .container__form__date .container__cvc .form__control::placeholder {
+  color: hsl(279, 6%, 55%);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: "";
+}
+.form__section .form__container .container__form__date .container__cvc .form__control:hover {
+  border-color: hsl(278, 94%, 30%);
 }
 .form__section .form__container .btn__form {
   color: hsl(0, 0%, 100%);
