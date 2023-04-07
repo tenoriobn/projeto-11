@@ -36,7 +36,7 @@ function validaData() {
 
     if(cardYear > currentYear || (cardYear === currentYear && cardMonth >= currentMonth)) {
         console.log('Deu bom')
-    } else {
+    } else if (cardYear < currentYear){
         console.log('deu ruim')
     }
 

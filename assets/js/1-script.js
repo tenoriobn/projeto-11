@@ -2,12 +2,28 @@
 import itsACard from "./2-validateCard.js";
 import itsACvc from "./3-validateCvc.js";
 import itsADate from "./4-validateDate.js";
-
 // Pegando os campos com status de required (nome, número do cartão, cvc,) e armazenando na variável
 const camposDoFormulario = document.querySelectorAll("[required]");
 
 const cardMonth = document.querySelector('[name="cardMonth"]');
 const cardYear = document.querySelector('[name="cardYear"]');
+const form = document.querySelector("[data-form]");
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const listaRespostas = {
+        "cardName": e.target.elements["cardName"].value,
+        "cardNumber": e.target.elements["cardNumber"].value,
+        "cardMonth": e.target.elements["cardMonth"].value,
+        "cardYear": e.target.elements["cardYear"].value,
+        "cardCvc": e.target.elements["cardCvc"].value
+    }
+
+    localStorage.setItem("cadastro", JSON.stringify(listaRespostas));
+
+    window.location.href = './assets/pages/complete_registration.html'
+})
 
 // Pegando cada campo dentro da variável "Campos Do formulario" com o forEach
 camposDoFormulario.forEach((campo) => {
@@ -176,6 +192,18 @@ function verificaCampo(campo) {
         errorMessage.textContent = "";
     }
 }
+
+
+    /*
+        1º Achar um meio (talvez as condições sejam úteis) para que só seja possível clicar no botão 'confirm' e ir para a próxima
+        etapa se todos os campos estiverem corretamente preenchidos.
+
+        2º Fazer com que as bordas do input fiquem vermelhas caso o input esteja preenchido de maneira errada.
+        3º Fazer com que os inputs fiquem vermelhos se o usuário tentar clicar no botão 'confirm' se algum campo
+        ou todos estiverem em branco.
+    */
+
+
 
 
 // Corrigir erro das mensagens customizadas nos inputs de mês e ano
