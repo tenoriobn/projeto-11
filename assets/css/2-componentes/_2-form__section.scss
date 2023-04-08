@@ -40,6 +40,13 @@
                 max-width: 380px;
 
                 padding-left: 1rem;
+                outline-width: 1px;
+                outline-color: $blueViolet;
+
+                :required:invalid,
+                    input:focus:invalid {
+                    background-color: #ffe6e6;
+                }
 
                 &::placeholder {
                     @include text ($darkViolet, .875rem, 400, .1rem, '');
@@ -96,6 +103,9 @@
                             height: 2.8125rem;
             
                             padding-left: 1rem;
+            
+                            outline-width: 1px;
+                            outline-color: $blueViolet;
             
                             &::placeholder {
                                 @include text ($darkViolet, .875rem, 400, .1rem, '');

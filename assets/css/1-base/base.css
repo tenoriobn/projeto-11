@@ -196,6 +196,12 @@
   height: 2.8125rem;
   max-width: 380px;
   padding-left: 1rem;
+  outline-width: 1px;
+  outline-color: hsl(278, 94%, 30%);
+}
+.form__section .form__container .form__field .form__control :required:invalid,
+.form__section .form__container .form__field .form__control input:focus:invalid {
+  background-color: #ffe6e6;
 }
 .form__section .form__container .form__field .form__control::-moz-placeholder {
   color: hsl(279, 6%, 55%);
@@ -263,6 +269,8 @@
   border-radius: 0.5rem;
   height: 2.8125rem;
   padding-left: 1rem;
+  outline-width: 1px;
+  outline-color: hsl(278, 94%, 30%);
 }
 .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardMonth .form__control::-moz-placeholder, .form__section .form__container .container__form__date .form__field--mod .form__field__input .container__cardYear .form__control::-moz-placeholder {
   color: hsl(279, 6%, 55%);
