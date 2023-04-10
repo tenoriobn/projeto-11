@@ -12,7 +12,7 @@ const form = document.querySelector("[data-form]");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const listaRespostas = {
+    const cardRegistration = {
         "cardName": e.target.elements["cardName"].value,
         "cardNumber": e.target.elements["cardNumber"].value,
         "cardMonth": e.target.elements["cardMonth"].value,
@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
         "cardCvc": e.target.elements["cardCvc"].value
     }
 
-    localStorage.setItem("cadastro", JSON.stringify(listaRespostas));
+    sessionStorage.setItem("cadastro", JSON.stringify(cardRegistration));
 
     window.location.href = './assets/pages/complete_registration.html';
 })
@@ -206,7 +206,7 @@ function verificaCampo(campo) {
         1º Fazer com que as bordas do input fiquem vermelhas caso o input esteja preenchido de maneira errada.**
         2º Fazer com que os inputs fiquem vermelhos se o usuário tentar clicar no botão 'confirm' se algum campo
         ou todos estiverem em branco.
-        3º Pegar os dados dos inputs e colocar na imagem do cartão frente e verso na página `complete_registration.html`
+        3º Pegar os dados dos inputs e colocar na imagem do cartão frente e verso na página `complete_registration.html`**
         4º Fazer com que ao colocar uma data expirada aparece uma mensagem igual quando o campo está errado
             // Além disso, só deve ser possível de confirmar, se for uma data válida que não expirou, pois está enviando data expirada.
         
