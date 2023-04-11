@@ -2,7 +2,7 @@ export default function itsADate(campo, validarData = true) {
     formatDate(campo);
     
     if (validarData) {
-        validaData();
+        validaData(campo);
     }
 }
 
@@ -34,12 +34,13 @@ function validaData() {
     const currentYear = Number(today.getFullYear().toString().slice(-2)); // pegamos o ano atual como uma string e depois os últimos 2 caracteres com slice()
     console.log(currentMonth, currentYear);
 
-    if(cardYear > currentYear || (cardYear === currentYear && cardMonth >= currentMonth)) {
-        console.log('Deu bom')
-    } else if (cardYear < currentYear){
-        console.log('deu ruim')
-    }
+    let expiredDate = document.querySelector('.expirado');
 
+    if(cardYear < currentYear || (cardYear === currentYear && cardMonth < currentMonth)) {
+        console.log('Deu ruim')
+        const cardYearSet = document.querySelector('[name="cardYear"]');
+        cardYearSet.setCustomValidity('Data expirada')
+    }
 }
 
 

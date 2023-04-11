@@ -116,13 +116,13 @@ function verificaCampo(campo) {
     // Aqui está analisando se o mês digitado pelo usuáro está correto
     if(campo.name == "cardMonth" && campo.value.length == 2 && campo.value !== "") {
         // Aqui vai chamar a função `itsADate`, e vai executar somente `formatDate(campo)` dentro dela
-        itsADate(campo, true);
+        itsADate(campo, false);
     }
 
     // Aqui está analisando se o ano digitado pelo usuáro está correto
     if(campo.name == "cardYear" && campo.value !== "") {
         // Aqui vai chamar a função `itsADate`, e vai executar somente `formatDate(campo)` dentro dela
-        itsADate(campo, true);
+        itsADate(campo, false);
     }
 
     // Se os valores dos campos forem diferente de vazio então essa condição é true
@@ -204,32 +204,23 @@ function verificaCampo(campo) {
     /*
     Atualização**
         1º Fazer com que as bordas do input fiquem vermelhas caso o input esteja preenchido de maneira errada.**
+
         2º Fazer com que os inputs fiquem vermelhos se o usuário tentar clicar no botão 'confirm' se algum campo
-        ou todos estiverem em branco.
+        ou todos estiverem em branco. ++++++++++++++++++++++++++++++++++
+
+
         3º Pegar os dados dos inputs e colocar na imagem do cartão frente e verso na página `complete_registration.html`**
-        4º Fazer com que ao colocar uma data expirada aparece uma mensagem igual quando o campo está errado
-            // Além disso, só deve ser possível de confirmar, se for uma data válida que não expirou, pois está enviando data expirada.
+        4º Fazer com que ao colocar uma data expirada aparece uma mensagem igual quando o campo está errado**
+            - Além disso, só deve ser possível de confirmar, se for uma data válida que não expirou, pois está enviando data expirada.**
+
+        5º Achar um meio (talvez as condições sejam úteis) para que só seja possível clicar no botão 'confirm' e ir para a próxima
+        etapa se todos os campos estiverem corretamente preenchidos.**
+
+        6º Corrigir erro das mensagens customizadas nos inputs de mês e ano**
+
+        7º Uma ideia seria botar o evento que executa a função dos inputs de data dentro da função  verifica campo**
+            - Pois assim, é possível que ai clicar no Month já seja cálculado na hora se o valor é correto**
+            - Depois, ao clicar no ano é avaliado se o valor é correto**
+            - Dai depois executa a união dos valores e a comparação deles.**
         
     */
-
-
-
-
-
-
-
-
-
-    /*
-        1º Achar um meio (talvez as condições sejam úteis) para que só seja possível clicar no botão 'confirm' e ir para a próxima
-        etapa se todos os campos estiverem corretamente preenchidos.**
-    */
-
-
-// Corrigir erro das mensagens customizadas nos inputs de mês e ano**
-// Talvez tenha que criar as mensagens customizadas para essa função, como foi para a outra.**
-
-// Uma ideia seria botar o evento que executa a função dos inputs de data dentro da função  verifica campo**
-    // Pois assim, é possível que ai clicar no Month já seja cálculado na hora se o valor é correto**
-    // Depois, ao clicar no ano é avaliado se o valor é correto**
-    // Dai depois executa a união dos valores e a comparação deles.**
