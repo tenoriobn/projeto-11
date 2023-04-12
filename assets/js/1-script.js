@@ -8,6 +8,19 @@ const camposDoFormulario = document.querySelectorAll("[required]");
 const cardMonth = document.querySelector('[name="cardMonth"]');
 const cardYear = document.querySelector('[name="cardYear"]');
 const form = document.querySelector("[data-form]");
+const btnForm = document.getElementById("btn__form");
+
+btnForm.addEventListener('click', () => {
+    const campo = document.querySelectorAll(".form__control");
+    const emptyInput = document.querySelector('.vazio');
+
+    for(let i = 0; i < campo.length; i++) {
+        if(campo[i].value === '') {
+            console.log('Campo vazio: ' + campo[i].name)
+            campo[i].style.borderColor = 'red';
+        }
+    }
+})
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -206,7 +219,7 @@ function verificaCampo(campo) {
         1º Fazer com que as bordas do input fiquem vermelhas caso o input esteja preenchido de maneira errada.**
 
         2º Fazer com que os inputs fiquem vermelhos se o usuário tentar clicar no botão 'confirm' se algum campo
-        ou todos estiverem em branco. ++++++++++++++++++++++++++++++++++
+        ou todos estiverem em branco. **
 
 
         3º Pegar os dados dos inputs e colocar na imagem do cartão frente e verso na página `complete_registration.html`**
