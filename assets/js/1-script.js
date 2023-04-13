@@ -3,7 +3,7 @@ import itsACard from "./2-validateCard.js";
 import itsACvc from "./3-validateCvc.js";
 import itsADate from "./4-validateDate.js";
 // Pegando os campos com status de required (nome, número do cartão, cvc,) e armazenando na variável
-const camposDoFormulario = document.querySelectorAll("[required]");
+const formFields = document.querySelectorAll("[required]");
 
 const cardMonth = document.querySelector('[name="cardMonth"]');
 const cardYear = document.querySelector('[name="cardYear"]');
@@ -12,7 +12,6 @@ const btnForm = document.getElementById("btn__form");
 
 btnForm.addEventListener('click', () => {
     const campo = document.querySelectorAll(".form__control");
-    const emptyInput = document.querySelector('.vazio');
 
     for(let i = 0; i < campo.length; i++) {
         if(campo[i].value === '') {
@@ -39,7 +38,7 @@ form.addEventListener("submit", (e) => {
 })
 
 // Pegando cada campo dentro da variável "Campos Do formulario" com o forEach
-camposDoFormulario.forEach((campo) => {
+formFields.forEach((campo) => {
     // Aplicando o evento blur em cada campo, já que o forEach pega todos os campos um de cada vez e armazena no parâmetro "campo"
     // Em seguida executa a função verificaCampo que vai executar o evento em cada campo
     campo.addEventListener("blur", () => verificaCampo(campo));
@@ -65,33 +64,33 @@ const errorTypes = [
     //valueMissing, patternMismatch, são propriedades que guardam erros de acordo com seus nomes.
 const messages = {
     cardName: {
-        valueMissing: "O campo de nome não pode estar vazio.",
-        patternMismatch: "Por favor, preencha um nome com formato válido.",
-        tooShort: "O campo de nome não tem caractéres suficientes."
+        valueMissing: "can't be blank",
+        patternMismatch: "Please fill in a name with valid format.",
+        tooShort: "The name field does not have enough characters."
     },
     cardNumber: {
-        valueMissing: 'O campo do número não pode estar vazio.',
-        patternMismatch: "Por favor, preencha um número válido.",
-        customError: "O número digitado não é válido.",
-        tooShort: "O campo de número não tem caractéres suficientes."
+        valueMissing: "can't be blank",
+        patternMismatch: "Please fill in a valid number.",
+        customError: "Please fill in a valid number..",
+        tooShort: "The number field does not have enough characters."
     },
     cardMonth: {
-        valueMissing: 'O campo do mês não pode estar vazio.',
-        patternMismatch: "Por favor, preencha um mês válido.",
-        customError: "O mês digitado não é válido.",
-        tooShort: "O campo de mês não tem caractéres suficientes."
+        valueMissing: "can't be blank",
+        patternMismatch: "Please fill in a valid month.",
+        customError: "The month entered is not valid.",
+        tooShort: "The month field does not have enough characters."
     },
     cardYear: {
-        valueMissing: 'O campo do ano não pode estar vazio.',
-        patternMismatch: "Por favor, preencha um ano válido.",
-        customError: "O ano digitado não é válido.",
-        tooShort: "O campo de ano não tem caractéres suficientes."
+        valueMissing: "can't be blank",
+        patternMismatch: "Please fill in a valid year.",
+        customError: "The year entered is not valid.",
+        tooShort: "The year field does not have enough characters."
     },
     cardCvc: {
-        valueMissing: 'O campo do cvc não pode estar vazio.',
-        patternMismatch: "Por favor, preencha um cvc válido.",
-        customError: "O cvc digitado não existe.",
-        tooShort: "O campo de cvc não tem caractéres suficientes."
+        valueMissing: "can't be blank",
+        patternMismatch: "Please fill in a valid cvc.",
+        customError: "The cvc entered does not exist.",
+        tooShort: "The cvc field does not have enough characters"
     }
 }
 
@@ -215,7 +214,7 @@ function verificaCampo(campo) {
         Corrigir pequeno bug da data em que ao digitar um ano válido e um mês expirado e depois ir alterando até um mês válido, não da submit.
         Além disso é necessário adicionar uma mensagem caso o mês seja expirado e o ano válido.
 
-        Entretanto, antes disso, estilizar a página secundaria.
+        Entretanto, antes disso, estilizar a página secundaria.**
     */
 
 

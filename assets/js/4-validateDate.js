@@ -14,12 +14,12 @@ function formatDate(campo) {
     
     if(campo.name == "cardYear" && (campo.value.length < 2 || campo.value.length === 3 || campo.value.length > 4 || isNaN(campo.value))) {
         // console.log('Ano inválido!')
-        campo.setCustomValidity('Ano inválido!');
+        campo.setCustomValidity('Invalid year!');
         return false;
     }
 
     if(campo.name == "cardMonth" && (campo.value.length == "" || campo.value.length > 2 || isNaN(campo.value) || campo.value < 1 || campo.value > 12)) {
-        campo.setCustomValidity('Mês inválido');
+        campo.setCustomValidity('invalid month');
         return false;
     }
 }
@@ -34,12 +34,9 @@ function validaData() {
     const currentYear = Number(today.getFullYear().toString().slice(-2)); // pegamos o ano atual como uma string e depois os últimos 2 caracteres com slice()
     console.log(currentMonth, currentYear);
 
-    let expiredDate = document.querySelector('.expirado');
-
     if(cardYear < currentYear || (cardYear === currentYear && cardMonth < currentMonth)) {
-        console.log('Deu ruim')
         const cardYearSet = document.querySelector('[name="cardYear"]');
-        cardYearSet.setCustomValidity('Data expirada')
+        cardYearSet.setCustomValidity('expired date')
     }
 }
 

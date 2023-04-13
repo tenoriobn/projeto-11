@@ -56,7 +56,7 @@ function validateCardNumber(campo) {
         // Essa condição só será executada caso seja digitado no campo algo que não é número (isNan 'Não é número')
         if (isNaN(cardNumber)) {
             // Se não for número, a condição será true dizendo que não é um número e executará o `console.log`
-            campo.setCustomValidity('Esse número não é válido')
+            campo.setCustomValidity('This number is not valid')
             // Além disso, retorna `false` para mostrar que a validação falhou
             return false;
         }
@@ -101,13 +101,13 @@ function validateCardNumber(campo) {
         // Sendo assim, o valor armazenado em `sum`, será divido por 10, se o resto for 0, a instrução da condição será executada
         // Ou seja, trata-se de um número válido
         if (sum % 10 === 0) {
-            console.log("número válido")
+            console.log("valid number")
             // Retorno indicando que o número é válido
             return true;
 
             // Caso contrário, se o resto da divisão for diferente de 0, trata-se de um número inválido
         } else {
-            campo.setCustomValidity('Esse número não é válido')
+            campo.setCustomValidity('This number is not valid')
             // Retorno indicando que o número é inválido
             return false;
         }
