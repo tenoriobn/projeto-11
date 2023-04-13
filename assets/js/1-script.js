@@ -211,6 +211,12 @@ function verificaCampo(campo) {
     }
 }
 
+    /*
+        Corrigir pequeno bug da data em que ao digitar um ano válido e um mês expirado e depois ir alterando até um mês válido, não da submit.
+        Além disso é necessário adicionar uma mensagem caso o mês seja expirado e o ano válido.
+
+        Entretanto, antes disso, estilizar a página secundaria.
+    */
 
 
 

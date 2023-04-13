@@ -358,6 +358,68 @@
     margin: 0 auto;
   }
 }
+.thanks__section {
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 381px;
+  width: 100%;
+}
+.thanks__section .thanks__img {
+  width: 5.0625rem;
+  height: 5.0625rem;
+}
+.thanks__section .thanks__subtitle {
+  color: hsl(278, 68%, 11%);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin-top: 2.75rem;
+  margin-bottom: 0;
+}
+.thanks__section .thanks__paragraph {
+  color: hsl(279, 6%, 55%);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: "";
+  text-transform: "";
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .thanks__section .thanks__paragraph {
+    color: "";
+    font-size: 1.1rem;
+    font-weight: "";
+    letter-spacing: "";
+    text-transform: "";
+  }
+}
+.thanks__section .btn__form {
+  box-sizing: border-box;
+  color: hsl(0, 0%, 100%);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: "";
+  text-transform: "";
+  background-color: hsl(278, 68%, 11%);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  height: 3.25rem;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 23.8125rem;
+}
+.thanks__section .btn__form:hover {
+  background-color: hsl(278, 94%, 30%);
+}
+
 html, body {
   font-family: "Space Grotesk", sans-serif;
   box-sizing: border-box;

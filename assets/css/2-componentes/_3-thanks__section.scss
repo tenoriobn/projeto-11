@@ -1,0 +1,65 @@
+@import '../1-base/variaveis';
+
+@mixin text ($color, $fontSize, $fontWeight, $letterSpacing, $uppercase) {
+    color: $color;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    letter-spacing: $letterSpacing;
+    text-transform: $uppercase;
+}
+
+.thanks__section {    
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    
+    padding: 0 1rem;
+    max-width: 381px;
+    width: 100%;
+
+
+    .thanks__img {
+        width: 5.0625rem;
+        height: 5.0625rem;
+    }
+
+    .thanks__subtitle {
+        @include text ($veryDarkViolet, 2rem, 400, .2rem, uppercase);
+        margin-top: 2.75rem;
+        margin-bottom: 0;
+    }
+
+    .thanks__paragraph {
+        @include text ($darkViolet, 1rem, 500, '', '');
+        margin-top: 2rem;
+        margin-bottom: 0;
+
+        @media screen and (min-width: 768px) {
+            @include text ('', 1.1rem, '', '', '');
+        }
+    }
+
+    .btn__form {
+        box-sizing: border-box;
+        @include text ($white, 1rem, 600, '', '');
+
+        background-color: $veryDarkViolet;
+        border: none;
+        border-radius: .5rem;
+        cursor: pointer;
+        
+        height: 3.25rem;
+
+        margin-top: 3rem;
+        
+        width: 100%;
+        max-width: 23.8125rem;
+
+        &:hover {
+            background-color: $blueViolet;
+        }
+    }
+}
