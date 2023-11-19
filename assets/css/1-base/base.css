@@ -5,16 +5,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 28%;
+  min-height: 264px;
   background-image: url(../../img/bg-main-mobile.png);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
-}
-@media screen and (min-width: 992px) {
-  .card__section::before {
-    background-image: url(../../img/bg-main-desktop.png);
-  }
 }
 .card__section .container__cards {
   display: flex;
@@ -44,11 +39,6 @@
   transform: translate(-50%, -50%);
   top: 49.5%;
   left: 82%;
-}
-@media screen and (min-width: 375px) {
-  .card__section .container__cards .back__card {
-    align-self: flex-end;
-  }
 }
 .card__section .container__cards .front__card {
   background-image: url(../../img/bg-card-front.png);
@@ -97,6 +87,11 @@
   margin: 0;
 }
 
+@media screen and (min-width: 375px) {
+  .back__card {
+    align-self: flex-end;
+  }
+}
 @media screen and (min-width: 992px) {
   .card__section {
     display: flex;
@@ -105,12 +100,13 @@
     position: relative;
   }
   .card__section::before {
+    background-image: url(../../img/bg-main-desktop.png);
     content: "";
     position: absolute;
     top: 0;
     left: -100%;
     right: 0rem;
-    width: 175%;
+    width: 164%;
     height: 100%;
   }
   .card__section .container__cards {
@@ -124,7 +120,10 @@
     transform: translate(0%, -160%);
   }
 }
-@media screen and (min-width: 992px) and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
+  .card__section {
+    padding-right: 7rem;
+  }
   .card__section .container__cards .back__card {
     transform: translate(25%, 65%);
     width: 27.9375rem;
@@ -368,6 +367,7 @@
 @media screen and (min-width: 992px) {
   .form__section {
     margin: 0 auto;
+    padding: 10rem 0;
   }
 }
 .thanks__section {
@@ -438,7 +438,11 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+main {
+  padding: 2rem 0;
 }
 
 .error-message {
@@ -453,6 +457,7 @@ html, body {
     display: flex;
     margin: 0 auto;
     width: 80%;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 0;
   }
 }/*# sourceMappingURL=base.css.map */
